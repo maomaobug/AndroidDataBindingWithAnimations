@@ -27,7 +27,7 @@ public class OptionsViewModel implements Contract.ViewModel {
     public void getOptions() {
         mRepository.fetchOptions()
                 .subscribeOn(Schedulers.io())
-                .subscribeOn(AndroidSchedulers.mainThread())
+                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Action1<List<String>>() {
                     @Override
                     public void call(List<String> strings) {
@@ -39,6 +39,6 @@ public class OptionsViewModel implements Contract.ViewModel {
     }
 
     public String get(int i) {
-        return mOptions.size() > i ? mOptions.get(i) : "";
+        return mOptions.size() > i ? mOptions.get(i) : null;
     }
 }

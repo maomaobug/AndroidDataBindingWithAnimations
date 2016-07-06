@@ -28,7 +28,7 @@ public class OptionsRepository {
         return Observable.create(new Observable.OnSubscribe<List<String>>() {
             @Override
             public void call(Subscriber<? super List<String>> subscriber) {
-                Collections.sort(mockedOptions);
+                Collections.shuffle(mockedOptions);
                 subscriber.onStart();
                 subscriber.onNext(mockedOptions.subList(0, 4));
                 subscriber.onCompleted();

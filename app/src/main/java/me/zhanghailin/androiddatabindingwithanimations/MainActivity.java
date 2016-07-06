@@ -14,13 +14,13 @@ public class MainActivity extends AppCompatActivity implements Contract.View {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mBinding  = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        mBinding  = DataBindingUtil.setContentView(this, R.layout.activity_main, new OptionBindingComponent());
         mViewModel = new OptionsViewModel(new OptionsRepository(), this);
         mBinding.setVariable(me.zhanghailin.androiddatabindingwithanimations.BR.options, mViewModel);
     }
 
     @Override
     public void refreshOptions() {
-        mBinding.executePendingBindings();
+        mBinding.setOptions(mViewModel);
     }
 }
