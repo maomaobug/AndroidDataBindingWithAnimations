@@ -21,6 +21,6 @@ public class MainActivity extends AppCompatActivity implements Contract.View {
 
     @Override
     public void refreshOptions() {
-        mBinding.executePendingBindings();
+        mBinding.setOptions(mViewModel);
     }
 }
